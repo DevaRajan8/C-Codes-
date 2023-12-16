@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <style>
+
+    input[type=button]
+    {
+      background-color:gray;color:white;border-radius:30px;width:100%;height:40px;font-size:20px;text-align:center;
+    }
+        
+    .noselect {
+      -webkit-touch-callout: none; /* iOS Safari */
+        -webkit-user-select: none; /* Safari */
+         -khtml-user-select: none; /* Konqueror HTML */
+           -moz-user-select: none; /* Firefox */
+            -ms-user-select: none; /* Internet Explorer/Edge */
+                user-select: none; /* Non-prefixed version, currently
+                                      supported by Chrome and Opera */
+    }
+
+    .slidecontainer {
+      width: 100%;
+    }
+
+    .slider {
+      -webkit-appearance: safeseq;
+      width: 100%;
+      height: 25px;
+      border-radius: 5px;
+      background: #d3d3d3;
+      outline: none;
+      opacity: 0.7;
+      -webkit-transition: .2s;
+      transition: opacity .2s;
+    }
+
+    .slider:hover {
+      opacity: 1;
+    }
+  
+    .slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: red;
+      cursor: pointer;
+    }
+
+    .slider::-moz-range-thumb {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: red;
+      cursor: pointer;
+    }
+
+    </style>
+  
+  </head>
+  <body class="noselect" align="center" style="background-color:black">
+     
+    <h1 style="color: teal;text-align:center;">Synergy creators</h1>
+    <h2 style="color: teal;text-align:center;">Robot Arm Control</h2>
+    
+    <table id="mainTable" style="width:400px;margin:auto;table-layout:fixed" CELLSPACING=10>
+      <tr/><tr/>
+      <tr/><tr/>
+      <tr>
+        <td style="text-align:left;font-size:25px"><b style="color: white">Grip:</b></td>
+        <td colspan=2>
+         <div class="slidecontainer">
+            <input type="range" min="0" max="180" value="90" class="slider" id="Grip" oninput='sendButtonInput("Grip",value)'>
+          </div>
+        </td>
+      </tr> 
+      <tr/><tr/>
+      <tr>
+        <td style="text-align:left;font-size:25px"><b style="color: white">Wrist pitch:</b></td>
+        <td colspan=2>
+         <div class="slidecontainer">
+            <input type="range" min="0" max="180" value="90" class="slider" id="Wristpitch" oninput='sendButtonInput("Wristpitch",value)'>
+          </div>
+        </td>
+      </tr> 
+      <tr/><tr/>      
+      <tr>
+        <td style="text-align:left;font-size:25px"><b style="color: white">Wrist roll:</b></td>
+        <td colspan=2>
+         <div class="slidecontainer">
+            <input type="range" min="0" max="180" value="90" class="slider" id="wristroll" oninput='sendButtonInput("wristroll",value)'>
+          </div>
+        </td>
+      </tr>  
+      <tr/><tr/>      
+      <tr>
+        <td style="text-align:left;font-size:25px"><b style="color: white">Elbow:</b></td>
+        <td colspan=2>
+         <div class="slidecontainer">
+            <input type="range" min="0" max="180" value="90" class="slider" id="Elbow" oninput='sendButtonInput("Elbow",value)'>
+          </div>
+        </td>
+      </tr> 
+      <tr/><tr/> 
+      <tr>
+        <td style="text-align:left;font-size:25px"><b style="color: white">Shoulder:</b></td>
+        <td colspan=2>
+         <div class="slidecontainer">
+            <input type="range" min="0" max="180" value="90" class="slider" id="Shoulder" oninput='sendButtonInput("Shoulder",value)'>
+          </div>
+        </td>
+      </tr> 
+      <tr/><tr/> 
+      <tr>
+        <td style="text-align:left;font-size:25px"><b style="color: white">Base:</b></td>
+        <td colspan=2>
+         <div class="slidecontainer">
+            <input type="range" min="0" max="180" value="90" class="slider" id="Base" oninput='sendButtonInput("Base",value)'>
+          </div>
+        </td>
+      </tr> 
+      <tr/><tr/> 
+      <tr>
+        <td style="text-align:left;font-size:25px"><b style="color: white">Record:</b></td>
+        <td><input type="button" id="Record" value="OFF" ontouchend='onclickButton(this)'></td>
+        <td></td>
+      </tr>
+      <tr/><tr/> 
+      <tr>
+        <td style="text-align:left;font-size:25px"><b style="color: white">Play:</b></td>
+        <td><input type="button" id="Play" value="OFF" ontouchend='onclickButton(this)'></td>
+        <td></td>
+      </tr>       
+    </table>
+  
+    <script>
